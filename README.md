@@ -37,6 +37,12 @@ Here is a trivial example showing how to upload a part to shapeways
     });
 
 
+# Install
+
+Via npm:
+
+    npm install shapewaysjs
+
 # API
 
 ## connect
@@ -60,4 +66,9 @@ Uploads a model
 ### addToCart
 
 Returns a URL for adding an item to the shapeways cart
+
+
+# Legal stuff
+
+ShapeWays is a trademark of ShapeWays Inc.  This is of course free software and is provided without any warranty.
 
