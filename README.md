@@ -128,40 +128,39 @@ In addition to the above parameters, you also need to specify a model.  There ar
 * __JSON__
 
     While the above two methods may be sufficient for some purposes, the interchange formats accepted by ShapeWays API are quite cumbersome for applications that process or manipulate 3D geometry in Javascript.  To facilitate working with models in Javascript, I added an extra option to directly upload an indexed set of faces using JSON.  To do this, you specify an object in the _model_json_ field.  For example, here is the option field required to upload a multicolored cube:
- 
-
-      conn.upload({
-          title: 'Test JSON Cube'
-        , units: 'cm'
-        , model_json: {
-            verts: [ 
-                  [0, 0, 0]
-                , [1, 0, 0]
-                , [0, 1, 0]
-                , [1, 1, 0]
-                , [0, 0, 1]
-                , [1, 0, 1]
-                , [0, 1, 1]
-                , [1, 1, 1] 
-            ]
-          , faces: [
-                  [0, 1, 3, 2]
-                , [0, 1, 5, 4]
-                , [0, 2, 6, 4]
-                , [1, 3, 7, 5]
-                , [2, 3, 7, 6]
-                , [4, 5, 7, 6] 
-            ]
-          , face_colors: [
-                  [1, 0, 0]
-                , [0, 1, 0]
-                , [0, 0, 1]
-                , [0, 1, 1]
-                , [1, 0, 1]
-                , [1, 1, 0]
-            ]
-        }
-      }); 
+      
+            conn.upload({
+                title: 'Test JSON Cube'
+              , units: 'cm'
+              , model_json: {
+                  verts: [ 
+                        [0, 0, 0]
+                      , [1, 0, 0]
+                      , [0, 1, 0]
+                      , [1, 1, 0]
+                      , [0, 0, 1]
+                      , [1, 0, 1]
+                      , [0, 1, 1]
+                      , [1, 1, 1] 
+                  ]
+                , faces: [
+                        [0, 1, 3, 2]
+                      , [0, 1, 5, 4]
+                      , [0, 2, 6, 4]
+                      , [1, 3, 7, 5]
+                      , [2, 3, 7, 6]
+                      , [4, 5, 7, 6] 
+                  ]
+                , face_colors: [
+                        [1, 0, 0]
+                      , [0, 1, 0]
+                      , [0, 0, 1]
+                      , [0, 1, 1]
+                      , [1, 0, 1]
+                      , [1, 1, 0]
+                  ]
+              }
+            }); 
     
     _model_json_ may have the following parameters
     
