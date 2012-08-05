@@ -13,26 +13,24 @@ shapeways.connect({
   console.log("Printers:", sw.printers);
   console.log("Materials:", sw.materials);
   
-  /*
   sw.upload({
-      title:    'Test Model'
-    , filename: './test/40mmcube.stl'
+      title:    'Test STL Part'
+    , model_filename: './test/40mmcube.stl'
     , units:    'mm'
   }, function(err, model_id) {
   
     if(err) {
-      console.log(err);
+      console.log("Failed to upload STL:", err);
       return;
     }
     
     console.log("Uploaded model:", model_id);
   });
-  */
   
   sw.upload({
-      title: 'Test JSON'
+      title: 'Test JSON Cube'
     , units: 'cm'
-    , json_model: {
+    , model_json: {
         verts: [ 
               [0, 0, 0]
             , [1, 0, 0]
@@ -51,8 +49,20 @@ shapeways.connect({
             , [2, 3, 7, 6]
             , [4, 5, 7, 6] 
         ]
+      , face_colors: [
+              [1, 0, 0]
+            , [0, 1, 0]
+            , [0, 0, 1]
+            , [0, 1, 1]
+            , [1, 0, 1]
+            , [1, 1, 0]
+        ]
     }
   }, function(err, model_id) {
+    if(err) {
+      console.log("Failed to upload JSON:", err);
+      return;
+    }
     console.log("Uploaded model: " + model_id);
   });
 });

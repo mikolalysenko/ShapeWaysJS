@@ -13,17 +13,20 @@
 
 
 
-# Introduction
+# Introduction #
 
 This is a node.js library for interfacing with the [ShapeWays](http://www.shapeways.com/) 3D printing service.  It allows you to:
 
-* Upload 3D models
 * Query printers and materials
-* Add items to shopping carts
+* Upload 3D models
 
-# Example
+The package here is basically a thin wrapper for [ShapeWays SOAP API](http://www.shapeways.com/api).  Once you've uploaded models using this library, you can sell them using the client side [Add to Cart API](http://www.shapeways.com/tutorials/shoppingcart/index.html).
 
-Here is a trivial example showing how to upload a part to shapeways
+# Example #
+
+To use the API, first you connect to ShapeWays using your username and password.  Once you have a connection established, you can upload models to the server using this data.  That's it!
+
+Here is a trivial example showing how to upload an STL file:
 
     require('shapeways').connect({
         username:  'Your Shapeways Username'
@@ -32,50 +35,94 @@ Here is a trivial example showing how to upload a part to shapeways
 
       conn.upload({
           title:    'Test Model'
-        , filename: 'test_model.stl'
+        , model_filename: 'test_model.stl'
       })
     });
 
-
-# Install
+# Install #
 
 Via npm:
 
     npm install shapeways
 
-# API
 
-## connect
 
-Connects to ShapeWays' API service.
+-------------------------------------------------------
 
-## ShapeWaysConnection
+# API #
 
-### printers
+### connect(options, callback(__err, conn__) ) ###
 
-A list of all available printers
+This method connects to ShapeWays.  It accepts the following options:
 
-### materials
+* _username_ : (Required) The username of your account at ShapeWays
+* _password_ : (Required) The password of your account at ShapeWays
+* _application_id_ : (Optional) An optional string to identify your application
 
-A list of all available materials
+If there was an error connecting, _callback_ will be called with an _Error_ object describing the reason for termination.  Otherwise, it will get a second parameter, _conn_, which is an object tracking the connection to ShapeWays' API.
 
-### upload(options, callback)
+## Connection Object Members ##
 
-Options is an object having a list of parameters for the 3D part.
+The connection object, _conn_, created by _connect_, has the following properties and methods:
 
-* title : (optional) Title of the part
-* desc : (optional) A short description of the part
-* tags: (optional) A comma delimited list of tagged attributes
-* view_state:  A string describing the view state of the object, must be one of, 'hidden', 'for sale', 'view only' .  Default is 'for sale'.
-* filename: Path to the 3D model
-* has_color: (optional) If set, will try uploading color model.
-* units: The units for the part, must be either 'mm', 'cm', 'm', 'inches' or 'feet'
-* scale: The scale of the part in meters.  If present, overrides units.  Default is 0.01 (cm)
-* markup: Mark up in dollars.  Default is 0
+### printers ###
 
-### cart_url(model_id, material)
+The _printers_ property is an array of all currently available 3D printers.  Each printer has the following fields:
 
-Returns a formatted URL for adding a part to the shopping cart.
+* _title_ : The name of the printer
+* _volume_ : A field representing the total volume it can print
+* _wallthickness_ : A lower bound on the wall thickness of any printable object
+* _technology_ : A description of the supported printing technology
+* _x/y/z_bound_min/max_ : The 3D space of the printer in cm
+* _materials_ : An array of supported materials
+
+### materials ###
+
+The _materials_ property is a JSON dictionary of available printing materials, keyed by their name.  Each material has the following properties:
+
+* _id_ : The internal id used by ShapeWays to index each material type.
+* _title_ : The name of the material
+* _description_ : An optional short description of the material
+* _startup_cost_ : A fixed cost required to use this material (in USD)
+
+
+### upload(options, callback(__err__, __model_id__ ) ###
+
+The _upload_ method sends a model to ShapeWays.  _options_ is a dictionary containing any of the following parameters along with a model and optional texture.
+
+* _title_ :  Title of the part.  Default: "Unnamed Model"
+* _desc_ : A short description of the model. Default: ""
+* _tags_ : A comma delimited list of tagged attributes.  Default: ""
+* _view_state_ :  A string describing the view state of the object, must be one of, 'hidden', 'for sale', 'view only' .  Default: 'for sale'
+* _markup_ : (optional) Mark up in dollars.  Default: 0
+* _units_ : (optional) The units for the model, must be either 'mm', 'cm', 'm', 'inches' or 'feet'.  Default: 'cm'
+* _scale_ : The scale of the model in meters.  If present, overrides units.  Default: 0.01 (note: same as 'cm' for units)
+
+In addition to the above parameters, you also need to specify a model.  There are three different ways you can do this:
+
+1. Files
+
+   If you already have a copy of your model saved to the file system, you can upload it directly.  ShapeWays supports the following file formats:  
+   
+   * [VRML](http://graphcomp.com/info/specs/sgi/vrml/spec/)
+   * [STL](http://en.wikipedia.org/wiki/STL_%28file_format%29) (both binary and ascii)
+   * [X3D](http://www.web3d.org/x3d/)
+   * [DAE](http://www.khronos.org/collada/) (Collada)
+   * And ZIP archives of any of the above.
+   
+   To upload a file, set _model_filename_ to the path to your model in _options_. 
+   
+   __Note:__ If you have a VRML part with face colors or a ZIP archive with a texture already included (as per this tutorial), then you can additionally set _has_color_ to _true_ in _options_ .  The library will try to infer the file type from the extension, though this behavior can be overriden by specifying a model type in the _modeltype_ option.
+   
+2. Buffer:
+  
+    The buffer interface is almost identical to the file interface, with the 
+
+
+3. JSON:
+
+
+
 
 # Legal stuff
 
