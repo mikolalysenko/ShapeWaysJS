@@ -13,7 +13,7 @@
 
 
 
-# Introduction #
+# About #
 
 This is a node.js library for interfacing with the [ShapeWays](http://www.shapeways.com/) 3D printing service.  It allows you to:
 
@@ -41,11 +41,7 @@ Here is a trivial example showing how to upload an STL file:
 
 # Install #
 
-Via npm:
-
     npm install shapeways
-
-
 
 -------------------------------------------------------
 
@@ -100,7 +96,7 @@ The _upload_ method sends a model to ShapeWays.  _options_ is a dictionary conta
 
 When _upload_ completes, it calls __callback__ with either an error code, or else a string encoding the _model_id_ in the ShapeWays database.  This _model_id_ can be used with ShapeWays [Add To Cart API](http://www.shapeways.com/tutorials/shoppingcart/index.html) to sell the model.
 
-#### Model Formats ####
+#### Models ####
 
 In addition to the above parameters, you also need to specify a model.  There are three different ways you can do this:
 
@@ -128,7 +124,6 @@ In addition to the above parameters, you also need to specify a model.  There ar
 * __JSON__
 
     While the above two methods may be sufficient for some purposes, the interchange formats accepted by ShapeWays API are quite cumbersome for applications that process or manipulate 3D geometry in Javascript.  To facilitate working with models in Javascript, I added an extra option to directly upload an indexed set of faces using JSON.  To do this, you specify an object in the _model_json_ field.  For example, here is the option field required to upload a multicolored cube:
- 
 
         conn.upload({
             title: 'Test JSON Cube'
@@ -170,14 +165,18 @@ In addition to the above parameters, you also need to specify a model.  There ar
     * _face_colors_ : (Optional) An array of colors for each face (must be same length as _faces_)
     * _tex_coords_ : (Optional) An array of texture coordinates (must be same length as _verts_)
     
+    __Note:__ It is redundant to specify both _face_colors_ and _tex_coords_.  If both are present and a texture is specified, _tex_coords_ overrides _face_colors_.
+    
+
+#### Textures ####
+
+You can also specify [textures](http://www.shapeways.com/tutorials/exporting_to_vrml_and_x3d_for_color_printing) to color your models.  Note that only VRML and X3D formats currently support this feature.  
 
 
+-------------------------------------------------------
 
 
+# Legal Stuff
 
-
-
-# Legal stuff
-
-ShapeWays is a trademark of ShapeWays Inc.  This is of course free software and is provided without any warranty.
+This unofficial wrapper was written by Mikola Lysenko, and is not in any way supported by or affiliated with ShapeWays.  This package includes a modified version of [node-soap](https://github.com/milewise/node-soap/), with patches to work around some API compatibility problems.  Other than the files in lib/soap-mod, this project is covered by the MIT license.
 
