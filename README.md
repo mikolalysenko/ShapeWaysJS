@@ -194,10 +194,7 @@ You can also specify [textures](http://www.shapeways.com/tutorials/exporting_to_
 -------------------------------------------------------
 
 
-## Notes
+# Credits
 
-
-# Legal Stuff
-
-This unofficial wrapper was written by Mikola Lysenko, and is not in any way supported by or affiliated with ShapeWays.  This package includes a modified version of [node-soap](https://github.com/milewise/node-soap/), with patches to work around some API compatibility problems.  Other than the files in lib/soap-mod, this project is covered by the MIT license.
+This unofficial wrapper was written by Mikola Lysenko, and is not in any way supported by or affiliated with ShapeWays.  This package includes a modified version of [node-soap](https://github.com/milewise/node-soap/), with patches to work around some API compatibility problems.  Other than the files in lib/soap-mod, this project is covered by the MIT license.  This project has external dependencies on the following npm modules: [node-expat](https://github.com/astro/node-expat/), [node-native-zip](https://github.com/janjongboom/node-native-zip), [png](https://github.com/pkrumins/node-png).
 
