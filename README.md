@@ -102,21 +102,22 @@ In addition to the above parameters, you also need to specify a model.  There ar
 
 1. Files
 
-   If you already have a copy of your model saved to the file system, you can upload it directly.  ShapeWays supports the following file formats:  
-   
-   * [VRML](http://graphcomp.com/info/specs/sgi/vrml/spec/)
-   * [STL](http://en.wikipedia.org/wiki/STL_%28file_format%29) (both binary and ascii)
-   * [X3D](http://www.web3d.org/x3d/)
-   * [DAE](http://www.khronos.org/collada/) (Collada)
-   * And ZIP archives of any of the above.
-   
-   To upload a file, set _model_filename_ to the path to your model in _options_. 
-   
-   __Note:__ If you have a VRML part with face colors or a ZIP archive with a texture already included (as per this tutorial), then you can additionally set _has_color_ to _true_ in _options_ .  The library will try to infer the file type from the extension, though this behavior can be overriden by specifying a model type in the _modeltype_ option.
+     If you already have a copy of your model saved to the file system, you can upload it directly.  ShapeWays supports the following file formats:  
+     * [VRML](http://graphcomp.com/info/specs/sgi/vrml/spec/)
+     * [STL](http://en.wikipedia.org/wiki/STL_%28file_format%29) (both binary and ascii)
+     * [X3D](http://www.web3d.org/x3d/)
+     * [DAE](http://www.khronos.org/collada/) (Collada)
+     * And ZIP archives of any of the above.
+     To upload a file, set _model_filename_ to the path to your model in _options_. 
+     
+     __Note:__ If you have a VRML part with face colors or a [ZIP archive with textures included](http://www.shapeways.com/tutorials/exporting_to_vrml_and_x3d_for_color_printing), then you can additionally set _has_color_ to _true_ in _options_ .  The library will try to infer the file type from the extension, though this behavior can be overriden by specifying a model type in the _modeltype_ option.
    
 2. Buffer:
   
-    The buffer interface is almost identical to the file interface, with the 
+    The buffer interface for uploads is almost identical to that for files, except that it takes a [Buffer](http://nodejs.org/api/buffer.html) object instead of a path to a file.  There are only a few slight differences:
+    
+    * To specify a buffer, set the _model_buffer_ option to the buffer itself.
+    * 
 
 
 3. JSON:
