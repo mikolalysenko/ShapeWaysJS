@@ -12,7 +12,6 @@
                                         
 
 
-
 # About #
 
 This is a node.js library for interfacing with the [ShapeWays](http://www.shapeways.com/) 3D printing service.  It allows you to:
@@ -172,17 +171,17 @@ In addition to the above parameters, you also need to specify a model.  There ar
 
 You can also specify [textures](http://www.shapeways.com/tutorials/exporting_to_vrml_and_x3d_for_color_printing) to color your models.  Note that only VRML and X3D formats support this feature.  Currently, the following methods for specifying a texture are supported:
 
-* Files
+* __Files__
 
     To specify a texture as a file, set the option _texture_filename_ to the path of the file.
     
     __Note:__ Only PNG and JPEG are supported.  _texture_filename_ must have the correct extension.
     
-* Buffers
+* __Buffers__
 
     You can also send a buffer containing a PNG or JPEG directly.  To do this, set _texture_buffer_ to the buffer of the texture and set _texture_type_ to the type of the texture (either PNG or JPEG).
 
-* Bitmaps
+* __Bitmaps__
   
     Finally, for procedurally generated textures there is an interface for uploading raw bitmaps.  To do this, you need to specify the following data:
     
@@ -193,8 +192,11 @@ You can also specify [textures](http://www.shapeways.com/tutorials/exporting_to_
 
 -------------------------------------------------------
 
+# More Examples #
 
-# Credits
+
+
+# Credits #
 
 This unofficial wrapper was written by Mikola Lysenko, and is not in any way supported by or affiliated with ShapeWays.  This package includes a modified version of [node-soap](https://github.com/milewise/node-soap/), with patches to work around some API compatibility problems.  Other than the files in lib/soap-mod, this project is covered by the MIT license.  This project has external dependencies on the following npm modules: [node-expat](https://github.com/astro/node-expat/), [node-native-zip](https://github.com/janjongboom/node-native-zip), [png](https://github.com/pkrumins/node-png).
 
