@@ -196,6 +196,7 @@ You can also specify [textures](http://www.shapeways.com/tutorials/exporting_to_
 
 # More Examples #
 
+Several examples of the API can be found in the examples/ directory.  
 
 # Credits #
 
