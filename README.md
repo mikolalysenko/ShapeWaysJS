@@ -95,6 +95,8 @@ The _upload_ method sends a model to ShapeWays.  _options_ is a dictionary conta
 
 When _upload_ completes, it calls __callback__ with either an error code, or else a string encoding the _model_id_ in the ShapeWays database.  This _model_id_ can be used with ShapeWays [Add To Cart API](http://www.shapeways.com/tutorials/shoppingcart/index.html) to sell the model.
 
+__Note:__ It takes some time between when the model is uploaded to ShapeWays and when it appears for sale.  Some models may not be printable and must be inspected first.  Unfortunately, ShapeWays only notifies of the results of these inspections by email, and so there is for now way to check the status of a part programmatically :(
+
 #### Models ####
 
 In addition to the above parameters, you also need to specify a model.  There are three different ways you can do this:
@@ -193,7 +195,6 @@ You can also specify [textures](http://www.shapeways.com/tutorials/exporting_to_
 -------------------------------------------------------
 
 # More Examples #
-
 
 
 # Credits #
