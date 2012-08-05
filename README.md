@@ -100,19 +100,21 @@ The _upload_ method sends a model to ShapeWays.  _options_ is a dictionary conta
 
 In addition to the above parameters, you also need to specify a model.  There are three different ways you can do this:
 
-1. Files
+* __Files__
 
      If you already have a copy of your model saved to the file system, you can upload it directly.  ShapeWays supports the following file formats:  
+     
      * [VRML](http://graphcomp.com/info/specs/sgi/vrml/spec/)
      * [STL](http://en.wikipedia.org/wiki/STL_%28file_format%29) (both binary and ascii)
      * [X3D](http://www.web3d.org/x3d/)
      * [DAE](http://www.khronos.org/collada/) (Collada)
      * And ZIP archives of any of the above.
+     
      To upload a file, set _model_filename_ to the path to your model in _options_. 
      
      __Note:__ If you have a VRML part with face colors or a [ZIP archive with textures included](http://www.shapeways.com/tutorials/exporting_to_vrml_and_x3d_for_color_printing), then you can additionally set _has_color_ to _true_ in _options_ .  The library will try to infer the file type from the extension, though this behavior can be overriden by specifying a model type in the _modeltype_ option.
    
-2. Buffer:
+* __Buffers__
   
     The buffer interface for uploads is almost identical to that for files, except that it takes a [Buffer](http://nodejs.org/api/buffer.html) object instead of a path to a file.  There are only a few slight differences:
     
@@ -120,7 +122,7 @@ In addition to the above parameters, you also need to specify a model.  There ar
     * 
 
 
-3. JSON:
+* __Javascript__
 
 
 
