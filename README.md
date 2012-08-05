@@ -170,10 +170,31 @@ In addition to the above parameters, you also need to specify a model.  There ar
 
 #### Textures ####
 
-You can also specify [textures](http://www.shapeways.com/tutorials/exporting_to_vrml_and_x3d_for_color_printing) to color your models.  Note that only VRML and X3D formats currently support this feature.  
+You can also specify [textures](http://www.shapeways.com/tutorials/exporting_to_vrml_and_x3d_for_color_printing) to color your models.  Note that only VRML and X3D formats support this feature.  Currently, the following methods for specifying a texture are supported:
 
+* Files
+
+    To specify a texture as a file, set the option _texture_filename_ to the path of the file.
+    
+    __Note:__ Only PNG and JPEG are supported.  _texture_filename_ must have the correct extension.
+    
+* Buffers
+
+    You can also send a buffer containing a PNG or JPEG directly.  To do this, set _texture_buffer_ to the buffer of the texture and set _texture_type_ to the type of the texture (either PNG or JPEG).
+
+* Bitmaps
+  
+    Finally, for procedurally generated textures there is an interface for uploading raw bitmaps.  To do this, you need to specify the following data:
+    
+      * _texture_bitmap_ : The raw bitmap storing the texture, either a buffer, array or typed array; flattened in row major order starting from the upper left.
+      * _texture_width_ : The width of the texture
+      * _texture_height_ : The height of the texture
+      * _texture_order_ : The pixel order of the texture.  Can be 'rgb', 'bgr', 'rgba or 'bgra'. Default: 'rgb'.
 
 -------------------------------------------------------
+
+
+## Notes
 
 
 # Legal Stuff

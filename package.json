@@ -1,0 +1,39 @@
+{
+  "name": "shapeways",
+  "preferGlobal": "true",
+  "version": "0.1.0",
+  "author": "Mikola Lysenko (mikolalysenko@gmail.com)",
+  "description": "",
+  "contributors": [ 
+  ],
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mikolalysenko/ShapeWaysJS.git"
+  },
+  "keywords": [
+    "3d printing",
+    "shapeways",
+    "soap",
+    "3d",
+    "dae",
+    "vrml",
+    "stl",
+    "maker"
+  ],
+  "dependencies" : {
+    "png"   :  "*",
+    "node-expat" :  "0.1.x",
+    "node-native-zip" :  "0.2.x",
+    "request"    :  "0.1.x"
+  },
+  "noAnalyze": true,
+  "devDependencies": {
+  },
+  "bundleDependencies": [
+  ],
+  "license": "MIT",
+  "engine": {
+    "node": ">=0.6"
+  }
+}

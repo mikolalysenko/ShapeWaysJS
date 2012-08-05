@@ -1,4 +1,5 @@
-var shapeways = require('./index.js');
+var shapeways = require('../index.js')
+  , path = require('path');
 
 shapeways.connect({
     username:  process.argv[2]
@@ -15,7 +16,7 @@ shapeways.connect({
   
   sw.upload({
       title:    'Test STL Part'
-    , model_filename: './test/40mmcube.stl'
+    , model_filename: path.join(__dirname, '40mmcube.stl')
     , units:    'mm'
   }, function(err, model_id) {
   
