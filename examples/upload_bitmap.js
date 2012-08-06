@@ -20,7 +20,7 @@ shapeways.connect({
       title: 'Test Bitmap Cube'
     , units: 'cm'
     , model_json: {
-        tex_coords: [
+        vert_uvs: [
               [0, 0]
             , [1, 0]
             , [0, 1]
@@ -50,8 +50,8 @@ shapeways.connect({
         ]
     }
     , texture_bitmap: [
-        1, 1, 1,      0, 0, 0, 
-        0, 0, 0,      1, 1, 1
+        255, 0, 0,      0, 255, 0, 
+        0,   0, 0,      0, 0,   255
       ]
     , texture_width:  2
     , texture_height: 2 
