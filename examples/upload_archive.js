@@ -19,7 +19,7 @@ shapeways.connect({
   sw.upload({
       title:    'Test Archive'
     , model_filename: path.join(__dirname, 'test_archive.zip')
-    , units:    'mm'
+    , units:    'cm'
     , has_color: true
   }, function(err, model_id) {
   

@@ -93,9 +93,9 @@ The _upload_ method sends a model to ShapeWays.  _options_ is a dictionary conta
 * _units_ : (optional) The units for the model, must be either 'mm', 'cm', 'm', 'inches' or 'feet'.  Default: 'cm'
 * _scale_ : The scale of the model in meters.  If present, overrides units.  Default: 0.01 (note: same as 'cm' for units)
 
-When _upload_ completes, it calls __callback__ with either an error code, or else a string encoding the _model_id_ in the ShapeWays database.  This _model_id_ can be used with ShapeWays [Add To Cart API](http://www.shapeways.com/tutorials/shoppingcart/index.html) to sell the model.
+When _upload_ completes, it calls _callback_ with either an error code, or else a string _model_id_ representing the upload in the ShapeWays database.  This _model_id_ can be used with ShapeWays [Add To Cart API](http://www.shapeways.com/tutorials/shoppingcart/index.html) to sell the model in a store.
 
-__Note:__ It takes some time between when the model is uploaded to ShapeWays and when it appears for sale.  Some models may not be printable and must be inspected first.  Unfortunately, ShapeWays only notifies of the results of these inspections by email, and so there is for now way to check the status of a part programmatically :(
+__Note:__ It takes some time between when the model is uploaded to ShapeWays and when it appears for sale.  Some models may not be printable and must be inspected first.  Unfortunately, ShapeWays only notifies of the results of these inspections by email, and so there is for now way to check the status of a part programmatically.
 
 #### Models ####
 
@@ -164,10 +164,10 @@ In addition to the above parameters, you also need to specify a model.  There ar
     * _verts_ : An array of length 3 arrays describing the vertices of the model
     * _faces_ : An array of arrays of indices describing the faces as counter clockwise oriented polygons.
     * _face_colors_ : (Optional) An array of colors for each face (must be same length as _faces_)
-    * _tex_coords_ : (Optional) An array of texture coordinates (must be same length as _verts_)
+    * _face_uvs_ : (Optional) An array of __per-face__ texture coordinates (must be same length as _faces_ ).  Overrides _face_colors_ if present along with a texture (see below).
+    * _vert_uvs_ : (Optional) An array of __per-vertex__ texture coordinates (must be same length as _verts_).  Overrides _face_colors_ and  _face_uvs_ if present along with a texture (see below).
     
-    __Note:__ It is redundant to specify both _face_colors_ and _tex_coords_.  If both are present and a texture is specified, _tex_coords_ overrides _face_colors_.
-    
+    __Note:__ It is redundant to specify more than one of _face_colors, _face_uvs_ or _vert_uvs_.
 
 #### Textures ####
 
@@ -197,6 +197,10 @@ You can also specify [textures](http://www.shapeways.com/tutorials/exporting_to_
 # More Examples #
 
 Several examples of the API can be found in the examples/ directory.  
+
+# Final Notes #
+
+This library is still in early development, and ShapeWays' API is currently in flux.  It is likely that some of these features may change over time.
 
 # Credits #
 

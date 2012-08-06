@@ -17,10 +17,10 @@ shapeways.connect({
   }
   
   sw.upload({
-      title: 'Test Textured Cube'
+      title: 'Test Bitmap Cube'
     , units: 'cm'
     , model_json: {
-        vert_uvs: [
+        tex_coords: [
               [0, 0]
             , [1, 0]
             , [0, 1]
@@ -49,7 +49,12 @@ shapeways.connect({
             , [4, 5, 7, 6] 
         ]
     }
-    , texture_filename: 'lena.jpg'
+    , texture_bitmap: [
+        1, 1, 1,      0, 0, 0, 
+        0, 0, 0,      1, 1, 1
+      ]
+    , texture_width:  2
+    , texture_height: 2 
   }, function(err, model_id) {
     if(err) {
       console.log("Failed to upload JSON:", err);
