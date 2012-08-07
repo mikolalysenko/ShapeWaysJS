@@ -24,8 +24,8 @@
   "dependencies" : {
     "png"   :  "*",
     "node-expat" :  "*",
-    "node-native-zip" :  "*",
-    "request"    :  "*"
+    "request"    :  "*",
+    "underscore" :  "*"
   },
   "noAnalyze": true,
   "devDependencies": {
@@ -34,6 +34,6 @@
   ],
   "license": "MIT",
   "engine": {
-    "node": ">=0.6"
+    "node": ">=0.8"
   }
 }
