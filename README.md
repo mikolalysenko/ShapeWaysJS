@@ -141,12 +141,12 @@ In addition to the above parameters, you also need to specify a model.  There ar
                   , [1, 1, 1] 
               ]
             , faces: [
-                    [0, 1, 3, 2]
-                  , [0, 1, 5, 4]
-                  , [0, 2, 6, 4]
-                  , [1, 3, 7, 5]
-                  , [2, 3, 7, 6]
-                  , [4, 5, 7, 6] 
+                  [3, 1, 0, 2]
+                , [0, 1, 5, 4]
+                , [6, 2, 0, 4]
+                , [1, 3, 7, 5]
+                , [7, 3, 2, 6]
+                , [4, 5, 7, 6] 
               ]
             , face_colors: [
                     [1, 0, 0]
@@ -191,6 +191,54 @@ You can also specify [textures](http://www.shapeways.com/tutorials/exporting_to_
       * _texture_width_ : The width of the texture
       * _texture_height_ : The height of the texture
       * _texture_order_ : The pixel order of the texture.  Can be 'rgb', 'bgr', 'rgba or 'bgra'. Default: 'rgb'.
+      
+__Example:__
+
+    conn.upload({
+        title: 'Test Bitmap Cube'
+      , units: 'cm'
+      , model_json: {
+          face_uvs: [
+              [[0,0], [0,1], [1,1], [1,0]]
+            , [[0,0], [0,1], [1,1], [1,0]]
+            , [[0,0], [0,1], [1,1], [1,0]]
+            , [[0,0], [0,1], [1,1], [1,0]]
+            , [[0,0], [0,1], [1,1], [1,0]]
+            , [[0,0], [0,1], [1,1], [1,0]]
+          ]
+        , verts: [ 
+                [0, 0, 0]
+              , [1, 0, 0]
+              , [0, 1, 0]
+              , [1, 1, 0]
+              , [0, 0, 1]
+              , [1, 0, 1]
+              , [0, 1, 1]
+              , [1, 1, 1] 
+          ]
+        , faces: [
+                [3, 1, 0, 2]
+              , [0, 1, 5, 4]
+              , [6, 2, 0, 4]
+              , [1, 3, 7, 5]
+              , [7, 3, 2, 6]
+              , [4, 5, 7, 6] 
+          ]
+      }
+      , texture_bitmap: [   //Stored in RGB order
+          255, 0, 0,      0, 255, 0, 
+          0,   0, 0,      0, 0,   255
+        ]
+      , texture_width:  2
+      , texture_height: 2 
+    }, function(err, model_id) {
+      if(err) {
+        console.log("Failed to upload:", err);
+        return;
+      }
+      console.log("Uploaded model: " + model_id);
+    });
+
 
 -------------------------------------------------------
 
