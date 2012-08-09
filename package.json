@@ -1,7 +1,7 @@
 {
   "name": "shapeways",
-  "preferGlobal": "true",
-  "version": "0.3.0",
+  "preferGlobal": "false",
+  "version": "0.3.1",
   "author": "Mikola Lysenko (mikolalysenko@gmail.com)",
   "description": "",
   "contributors": [ 
