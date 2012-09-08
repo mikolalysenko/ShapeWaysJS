@@ -54,5 +54,6 @@ shapeways.connect({
       return;
     }
     console.log("Uploaded model: " + model_id);
+    console.log("ShapeWays URL: http://www.shapeways.com/model/"+model_id);
   });
 });

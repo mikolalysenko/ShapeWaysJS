@@ -50,11 +50,13 @@ shapeways.connect({
         ]
     }
     , texture_filename: 'lena.jpg'
+    , materials: [ "Full Color Sandstone" ]
   }, function(err, model_id) {
     if(err) {
       console.log("Failed to upload JSON:", err);
       return;
     }
     console.log("Uploaded model: " + model_id);
+    console.log("ShapeWays URL: http://www.shapeways.com/model/"+model_id);
   });
 });
