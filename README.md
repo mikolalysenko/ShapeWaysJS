@@ -82,7 +82,7 @@ The _materials_ property is a JSON dictionary of available printing materials, k
 
 ### price(options, callback(__err__, __quote__ ) ###
 
-The _price_ method gets a price quote from ShapeWays for printing a part with a given material and volume.  Note that this should be treated as an estimate may be subject to change (ie it is not legally binding in anyway).  _options_ is a dictionary containing the following parameters:
+The _price_ method gets a price quote from ShapeWays for printing a part with a given material and volume.  Note that this should be treated as an estimate and may be subject to change (ie it is not legally binding in anyway).  _options_ is a dictionary containing the following parameters:
 
 * _volume_ : A nonnegative number representing the volume of the object in cm^3 .
 * _material_ : The material to use in the print.
