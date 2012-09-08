@@ -80,6 +80,19 @@ The _materials_ property is a JSON dictionary of available printing materials, k
 * _description_ : An optional short description of the material
 * _startup_cost_ : A fixed cost required to use this material (in USD)
 
+### price(options, callback(__err__, __quote__ ) ###
+
+The _price_ method gets a price quote from ShapeWays for printing a part with a given material and volume.  Note that this should be treated as an estimate may be subject to change (ie it is not legally binding in anyway).  _options_ is a dictionary containing the following parameters:
+
+* _volume_ : A nonnegative number representing the volume of the object in cm^3 .
+* _material_ : The material to use in the print.
+
+The resulting quote is again a dictionary containing the following parameters:
+
+* _price_ : The price of the object
+* _includes_tax_ : A flag which if set determines whether the price includes tax
+* _includes_shipping_ : A flag which if set determines whether the price includes shipping
+* _currency_ : The currency the price is given in.
 
 ### upload(options, callback(__err__, __model_id__ ) ###
 
@@ -91,7 +104,8 @@ The _upload_ method sends a model to ShapeWays.  _options_ is a dictionary conta
 * _view_state_ :  A string describing the view state of the object, must be one of, 'hidden', 'for sale', 'view only' .  Default: 'for sale'
 * _markup_ : (optional) Mark up in dollars.  Default: 0
 * _units_ : (optional) The units for the model, must be either 'mm', 'cm', 'm', 'inches' or 'feet'.  Default: 'cm'
-* _scale_ : The scale of the model in meters.  If present, overrides units.  Default: 0.01 (note: same as 'cm' for units)
+* _scale_ : (optional) The scale of the model in meters.  If present, overrides units.  Default: 0.01 (note: same as 'cm' for units)
+* _materials_ : (optional) An array of material types.  Entries can be either a 1) material_id (numeric values), 2) a string representing the material title (as listed in the materials array), or 3) a reference to a material object. Default: no material restrictions
 
 When _upload_ completes, it calls _callback_ with either an error code, or else a string _model_id_ representing the upload in the ShapeWays database.  This _model_id_ can be used with ShapeWays [Add To Cart API](http://www.shapeways.com/tutorials/shoppingcart/index.html) to sell the model in a store.
 
