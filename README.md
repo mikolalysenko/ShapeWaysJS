@@ -105,7 +105,7 @@ The _upload_ method sends a model to ShapeWays.  _options_ is a dictionary conta
 * _markup_ : (optional) Mark up in dollars.  Default: 0
 * _units_ : (optional) The units for the model, must be either 'mm', 'cm', 'm', 'inches' or 'feet'.  Default: 'cm'
 * _scale_ : (optional) The scale of the model in meters.  If present, overrides units.  Default: 0.01 (note: same as 'cm' for units)
-* _materials_ : (optional) An array of material types.  Entries can be either a 1) material_id (numeric values), 2) a string representing the material title (as listed in the materials array), or 3) a reference to a material object. Default: no material restrictions
+* _materials_ : (optional) An array of material types.  Entries can be either a 1) material_id (numeric values), 2) a string representing the material title (as listed in the materials array), or 3) a reference to a material object. Default: no material restrictions (Note:  This feature is not officially supported.)
 
 When _upload_ completes, it calls _callback_ with either an error code, or else a string _model_id_ representing the upload in the ShapeWays database.  This _model_id_ can be used with ShapeWays [Add To Cart API](http://www.shapeways.com/tutorials/shoppingcart/index.html) to sell the model in a store.
 
