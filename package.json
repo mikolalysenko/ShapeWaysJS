@@ -1,7 +1,7 @@
 {
   "name": "shapeways",
   "preferGlobal": "false",
-  "version": "0.4.2",
+  "version": "0.4.4",
   "author": "Mikola Lysenko (mikolalysenko@gmail.com)",
   "description": "",
   "contributors": [ 
@@ -23,7 +23,7 @@
   ],
   "dependencies" : {
     "png"   :  "2.*.*",
-    "node-expat" :  "1.6.*",
+    "node-expat" :  "*",
     "request"    :  "2.11.*",
     "underscore" :  "1.3.*"
   },
