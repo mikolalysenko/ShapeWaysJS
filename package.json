@@ -22,9 +22,9 @@
     "maker"
   ],
   "dependencies" : {
-    "png"   :  "2.*.*",
-    "node-expat" :  "*",
-    "request"    :  "2.11.*",
+    "png"   :  "2.*",
+    "node-expat" :  "1.*",
+    "request"    :  "2.*",
     "underscore" :  "1.*"
   },
   "noAnalyze": true,
