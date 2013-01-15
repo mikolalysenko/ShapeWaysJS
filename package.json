@@ -3,7 +3,7 @@
   "preferGlobal": "false",
   "version": "0.4.8",
   "author": "Mikola Lysenko (mikolalysenko@gmail.com)",
-  "description": "",
+  "description": "3D print stuff via ShapeWays",
   "contributors": [ 
   ],
   "main": "./index.js",
