@@ -22,7 +22,7 @@
     "maker"
   ],
   "dependencies" : {
-    "png"   :  "*",
+    "png"        :  "*",
     "node-expat" :  "*",
     "request"    :  "*",
     "underscore" :  "*"

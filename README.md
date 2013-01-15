@@ -144,7 +144,7 @@ In addition to the above parameters, you also need to specify a model.  There ar
             title: 'Test JSON Cube'
           , units: 'cm'
           , model_json: {
-              verts: [ 
+              positions: [ 
                     [0, 0, 0]
                   , [1, 0, 0]
                   , [0, 1, 0]
@@ -175,11 +175,12 @@ In addition to the above parameters, you also need to specify a model.  There ar
     
     _model_json_ may have the following parameters
     
-    * _verts_ : An array of length 3 arrays describing the vertices of the model
-    * _faces_ : An array of arrays of indices describing the faces as counter clockwise oriented polygons.
-    * _face_colors_ : (Optional) An array of colors for each face (must be same length as _faces_)
-    * _face_uvs_ : (Optional) An array of __per-face__ texture coordinates (must be same length as _faces_ ).  Overrides _face_colors_ if present along with a texture (see below).
-    * _vert_uvs_ : (Optional) An array of __per-vertex__ texture coordinates (must be same length as _verts_).  Overrides _face_colors_ and  _face_uvs_ if present along with a texture (see below).
+    * `positions` : An array of length 3 arrays describing the vertices of the model.
+    * `verts`: An alternative name for `positions`
+    * `faces` : An array of arrays of indices describing the faces as counter clockwise oriented polygons.
+    * `face_colors` : (Optional) An array of colors for each face (must be same length as `faces`)
+    * `face_uvs` : (Optional) An array of __per-face__ texture coordinates (must be same length as _faces_ ).  Overrides _face_colors_ if present along with a texture (see below).
+    * `vert_uvs` : (Optional) An array of __per-vertex__ texture coordinates (must be same length as `verts`).  Overrides `face_colors` and  `face_uvs` if present along with a texture (see below).
     
     __Note:__ It is redundant to specify more than one of _face_colors, _face_uvs_ or _vert_uvs_.
 
