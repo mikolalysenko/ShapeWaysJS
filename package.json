@@ -1,7 +1,6 @@
 {
   "name": "shapeways",
-  "preferGlobal": "false",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "author": "Mikola Lysenko (mikolalysenko@gmail.com)",
   "description": "3D print stuff via ShapeWays",
   "contributors": [ 
