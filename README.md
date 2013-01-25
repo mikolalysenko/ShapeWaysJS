@@ -40,6 +40,12 @@ Here is a trivial example showing how to upload an STL file:
 
 # Install #
 
+First you need to install [node-gyp](https://github.com/TooTallNate/node-gyp) globally so that you can build required plugins for [node-expat](https://github.com/astro/node-expat):
+
+    sudo npm install -g node-gyp
+
+Once that is done, you should be able to just install the package as usual:
+
     npm install shapeways
 
 -------------------------------------------------------
@@ -267,5 +273,5 @@ This library is still in early development, and ShapeWays' API is currently in f
 
 # Credits #
 
-This unofficial wrapper was written by Mikola Lysenko, and is not in any way supported by or affiliated with ShapeWays.  This package includes a modified version of [node-soap](https://github.com/milewise/node-soap/), with patches to work around some API compatibility problems.  Additionally, it uses a modified version of Segrgey Korotov's [tinyzip](https://github.com/sergeyksv/tinyzip), which was extended to handle raw file stream/buffer input.  Other than the files in lib/soap-mod and lib/tinyzip-mod, this project is covered by the MIT license.  This project has external dependencies on the following npm modules: [node-expat](https://github.com/astro/node-expat/), [png](https://github.com/pkrumins/node-png), [underscore.js](http://underscorejs.org/) [request](https://github.com/mikeal/request/)
+This unofficial wrapper was written by Mikola Lysenko, and is not in any way supported by or affiliated with ShapeWays.  This package includes a modified version of [node-soap](https://github.com/milewise/node-soap/), with patches to work around some API compatibility problems.  Additionally, it uses a modified version of Segrgey Korotov's [tinyzip](https://github.com/sergeyksv/tinyzip), which was extended to handle raw file stream/buffer input.  Other than the files in lib/soap-mod and lib/tinyzip-mod, this project is covered by the MIT license.  This project has external dependencies on the following npm modules: [node-expat](https://github.com/astro/node-expat/), [pngjs](https://github.com/niegowski/node-pngjs), [underscore.js](http://underscorejs.org/) [request](https://github.com/mikeal/request/)
 

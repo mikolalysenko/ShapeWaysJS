@@ -53,6 +53,7 @@ shapeways.connect({
         255, 0, 0,      0, 255, 0, 
         0,   0, 0,      0, 0,   255
       ]
+    , texture_order:  "rgb"
     , texture_width:  2
     , texture_height: 2 
   }, function(err, model_id) {
